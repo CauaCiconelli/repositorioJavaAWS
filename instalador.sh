@@ -1,10 +1,5 @@
 #!/bin/bash
 
-#Criação diretórios
-cd /home
-mkdir scripts
-cd scripts
-
 #Instalação Java
 which java|grep /java
 if [ $? = 0 ]
