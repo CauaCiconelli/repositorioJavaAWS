@@ -11,6 +11,13 @@ sudo systemctl start docker
 sudo systemctl enable docker
 fi
 docker pull mysql
-sudo docker run -d -p 3300:3306 --name bancoRabbit -e "MYSQL_DATABASE=bolsa" -e "MYSQL_ROOT_PASSWORD=bolsa" mysql
-cd /home/scripts/repositorioJavaAWS
-sudo docker exec -it bancoRabbit bash
+sudo docker build -t banco . - vamos construir a imagem
+sudo docker run -d -p 3306:3306 -e "MYSQL_ROOT_PASSWORD=123" -e "MYSQL_DATABASE=bolsa" banco
+
+sudo docker build -t python . - cria imagem python
+sudo docker run -t -i --name python id - executa imagem python
+
+
+sudo docker exec -it id container bash - entra no bash
+mysql -u root -p - entra no bash do mysql
+sudo docker exec -t id cat /etc/hosts - pegar ip do container
